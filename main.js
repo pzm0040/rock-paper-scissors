@@ -52,10 +52,18 @@ function playRound(playerSelection, computerSelction) {
     }
 }
 
-/* Prompt User for input, format to lowercase */
-const playerSelection = prompt("Select: Rock, Paper, or Scissors: ");
-const playerSelectionFormatted = playerSelection.toLowerCase();
-const computerSelection = getComputerChoice();
+function game() {
+    for (let i = 0; i<5; i++) {
+       console.log(playRound(prompt("Select: Rock, Paper, or Scissors: ").toLowerCase(),getComputerChoice()));
+       console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
+    } if (playerScore > computerScore) {
+        console.log("You Win!");
+    } else if (playerScore == computerScore) {
+        console.log("Tie Game");
+    } else {
+        console.log("You Lose!");
+    }
+}
 
-console.log(playRound(playerSelectionFormatted, computerSelection))
-console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
+// main function to play game 5 times
+game();
